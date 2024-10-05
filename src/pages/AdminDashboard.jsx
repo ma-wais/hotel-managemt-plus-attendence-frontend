@@ -13,13 +13,13 @@ const AdminDashboard = () => {
   const adminToken = sessionStorage.getItem("adminToken");
 
   useEffect(() => {
-    if(!adminToken) {
+    if (!adminToken) {
       navigate("/");
     }
     const fetchBranches = async () => {
       try {
         const res = await axios.get(`${server}/branches`, {
-          headers: { Authorization: `Bearer ${adminToken}` }
+          headers: { Authorization: `Bearer ${adminToken}` },
         });
         setBranches(res.data);
       } catch (err) {
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
       alert("Branch credentials updated successfully");
       setSelectedBranch(null);
       const res = await axios.get(`${server}/branches`, {
-        headers: { Authorization: `Bearer ${adminToken}` }
+        headers: { Authorization: `Bearer ${adminToken}` },
       });
       setBranches(res.data);
     } catch (err) {
@@ -61,7 +61,15 @@ const AdminDashboard = () => {
 
   return (
     <div className="container p-6 mx-auto min-h-screen">
-      <h1 className="text-3xl my-10 font-bold">Branches</h1>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-3xl my-10 font-bold">Branches</h1>
+        <button
+          className="p-2 rounded-lg bg-white hover:bg-gray-100"
+          onClick={() => navigate("/admin/create-branch")}
+        >
+          Create Branch
+        </button>
+      </div>
       <div className="flex flex-wrap gap-8">
         {branches.map((branch) => (
           <div key={branch._id} className="flex flex-col items-center">
@@ -84,10 +92,15 @@ const AdminDashboard = () => {
       {selectedBranch && (
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
           <div className="bg-white p-5 rounded-lg shadow-lg">
-            <h2 className="text-xl mb-4">Update Credentials for {selectedBranch.name}</h2>
+            <h2 className="text-xl mb-4">
+              Update Credentials for {selectedBranch.name}
+            </h2>
             <form onSubmit={handleSubmitCredentials}>
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="username"
+                >
                   Username
                 </label>
                 <input
@@ -100,7 +113,10 @@ const AdminDashboard = () => {
                 />
               </div>
               <div className="mb-6">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="password"
+                >
                   New Password
                 </label>
                 <input

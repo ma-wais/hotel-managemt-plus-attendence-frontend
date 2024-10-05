@@ -22,10 +22,10 @@ function App() {
         <Route path="/" element={<UserLogin />} />
         <Route path="/dashboard" element={<BranchDashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/create-branch" element={<CreateBranch />} />
         <Route path="/login" element={<BranchLogin />} />
         <Route path="/branch/:branchId" element={<BranchPage />} />
         <Route path="/dashboard/employees" element={<EmployeeForm />} />
-        <Route path="/dashboard/create-branch" element={<CreateBranch />} />
         <Route
           path="/branches/:branchId/sections/:sectionId/shifts/:shiftId/add-employee"
           element={<AddEmployee />}
