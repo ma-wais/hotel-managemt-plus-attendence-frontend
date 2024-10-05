@@ -64,7 +64,7 @@ const AdminDashboard = () => {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl my-10 font-bold">Branches</h1>
         <button
-          className="p-2 rounded-lg bg-white hover:bg-gray-100"
+          className="p-2 rounded-lg bg-gray-100"
           onClick={() => navigate("/admin/create-branch")}
         >
           Create Branch
