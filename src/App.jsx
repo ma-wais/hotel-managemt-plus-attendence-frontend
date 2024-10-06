@@ -15,8 +15,8 @@ import EditEmployee from "./pages/EditEmployee.jsx";
 import ManageEmployeesPage from "./pages/ManageEmployee.jsx";
 // import AdminLogin from "./pages/AdminLogin.jsx";
 
-export const server = "http://localhost:5000/api";
-// export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
+// export const server = "http://localhost:5000/api";
+export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
 
 function App() {
   return (
