@@ -10,10 +10,13 @@ import EditBranch from "./pages/EditBranch.jsx";
 import EmployeeForm from "./pages/EmployeeForm.jsx";
 import UserLogin from "./pages/Login.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
+import TransferEmployee from "./pages/TransferEmployee.jsx";
+import EditEmployee from "./pages/EditEmployee.jsx";
+import ManageEmployeesPage from "./pages/ManageEmployee.jsx";
 // import AdminLogin from "./pages/AdminLogin.jsx";
 
-// export const server = "http://localhost:5000/api";
-export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
+export const server = "http://localhost:5000/api";
+// export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
 
 function App() {
   return (
@@ -26,9 +29,16 @@ function App() {
         <Route path="/login" element={<BranchLogin />} />
         <Route path="/branch/:branchId" element={<BranchPage />} />
         <Route path="/dashboard/employees" element={<EmployeeForm />} />
+        <Route path="/employees/:employeeId/transfer" element={<TransferEmployee />} />
+        <Route path="/employees/:employeeId/edit" element={<EditEmployee />} />
+
         <Route
           path="/branches/:branchId/sections/:sectionId/shifts/:shiftId/add-employee"
           element={<AddEmployee />}
+        />
+        <Route
+          path="/branches/:branchId/sections/:sectionId/shifts/:shiftId/manage-employees"
+          element={<ManageEmployeesPage />}
         />
         <Route
           path="/branches/:branchId/add-section"

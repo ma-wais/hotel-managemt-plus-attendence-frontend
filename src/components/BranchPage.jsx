@@ -20,9 +20,7 @@ const BranchPage = () => {
   useEffect(() => {
     const fetchSections = async () => {
       try {
-        const res = await axios.get(
-          `${server}/branches/${branchId}/sections`
-        );
+        const res = await axios.get(`${server}/branches/${branchId}/sections`);
         setSections(res.data);
       } catch (err) {
         console.error("Error fetching sections:", err);
@@ -35,9 +33,7 @@ const BranchPage = () => {
     const fetchShifts = async () => {
       if (selectedSection) {
         try {
-          const res = await axios.get(
-            `${server}/branches/${branchId}/shifts`
-          );
+          const res = await axios.get(`${server}/branches/${branchId}/shifts`);
           setShifts(res.data);
         } catch (err) {
           console.error("Error fetching shifts:", err);
@@ -128,7 +124,7 @@ const BranchPage = () => {
           className="bg-blue-500 text-white p-2 rounded"
           onClick={() => navigate(`/branches/${branchId}/add-section`)}
         >
-          Add Section
+          Manage
         </button>
       </div>
 
@@ -148,7 +144,7 @@ const BranchPage = () => {
             className="bg-blue-500 text-white p-2 rounded"
             onClick={() => navigate(`/branches/${branchId}/add-shift`)}
           >
-            Add Shift
+            Manage
           </button>
         </div>
       )}
@@ -215,11 +211,11 @@ const BranchPage = () => {
           className="mt-6 bg-blue-500 text-white p-2 rounded"
           onClick={() =>
             navigate(
-              `/branches/${branchId}/sections/${selectedSection?.value}/shifts/${selectedShift?.value}/add-employee`
+              `/branches/${branchId}/sections/${selectedSection?.value}/shifts/${selectedShift?.value}/manage-employees`
             )
           }
         >
-          Add Employee
+          Manage Employees
         </button>
       )}
     </div>

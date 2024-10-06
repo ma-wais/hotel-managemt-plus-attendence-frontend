@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { server } from "../App";
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const [branches, setBranches] = useState([]);
   const [selectedBranch, setSelectedBranch] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   const adminToken = sessionStorage.getItem("adminToken");
 
