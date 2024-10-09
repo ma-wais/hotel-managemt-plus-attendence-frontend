@@ -16,8 +16,8 @@ const AdminDashboard = () => {
   const navItems = [
     { title: "Branches", icon: FaCodeBranch, path: "/admin/branches" },
     { title: "Employees", icon: FaUsers, path: "/admin/employees" },
-    { title: "Present", icon: FaUserCheck, path: "/employees-present" },
-    { title: "Absent", icon: FaUserTimes, path: "/employees-absent" },
+    { title: "Present", icon: FaUserCheck, path: "/admin/employees-present" },
+    { title: "Absent", icon: FaUserTimes, path: "/admin/employees-absent" },
   ];
 
   return (
