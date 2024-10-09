@@ -1,0 +1,84 @@
+.sideBar {
+  background-color: rgb(63, 62, 62);
+  color: #cac8c8;
+  position: sticky;
+  overflow: hidden;
+  width: 220px;
+  height: 100vh;
+  padding: 4px 8px;
+  font-size: 14px;
+
+  > div {
+    display: flex;
+    align-items: center !important;
+    margin: 3px 0;
+    cursor: pointer;
+
+    p {
+      position: relative;
+      margin-top: 9px;
+      color: #b3b0b0;
+
+      &:hover {
+        color: #e9e6e6;
+      }
+    }
+    svg {
+      transform: translateY(5px);
+      margin: 0 4px;
+      font-size: 17px;
+    }
+
+    &:hover {
+      color: #e9e6e6;
+    }
+
+    .add {
+      position: absolute;
+      right: 10px;
+      font-size: 13px;
+    }
+  }
+}
+
+nav {
+  background-color: rgb(77, 76, 76);
+  overflow: hidden;
+  height: 0%;
+
+  p {
+    margin-left: 25px;
+    height: 26px;
+    font-weight: 100;
+    position: relative;
+    color: #a7a3a3;
+
+    &:hover {
+      color: #e9e6e6;
+      cursor: pointer;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 32px;
+      width: 10px;
+      border-left: 1px solid #8b8a8a;
+      border-bottom: 1px solid #8b8a8a;
+      left: -14px;
+      top: -20px;
+    }
+
+    &:hover::after {
+      border-color: #a7a6a6;
+    }
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 5px;
+    }
+  }
+}

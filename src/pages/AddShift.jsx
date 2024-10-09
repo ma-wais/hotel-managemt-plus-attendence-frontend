@@ -47,7 +47,7 @@ const AddShift = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 w-full">
       <h1 className="text-2xl font-bold mb-4">Add Shift</h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <input

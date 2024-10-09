@@ -98,7 +98,7 @@ const BranchPage = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 min-h-screen w-full">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl">Branch Info</h1>
         <button

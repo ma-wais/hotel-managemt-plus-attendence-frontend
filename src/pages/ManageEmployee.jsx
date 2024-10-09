@@ -40,7 +40,7 @@ const ManageEmployeesPage = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 min-h-screen w-full">
       <h1 className="text-3xl mb-4">Manage Employees</h1>
       <button
         className="mb-4 bg-green-500 text-white p-2 rounded"

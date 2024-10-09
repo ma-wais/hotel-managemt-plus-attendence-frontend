@@ -57,7 +57,7 @@ const AddSection = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 w-full">
       <h1 className="text-2xl font-bold mb-4">Add Section</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit} className="mb-4">

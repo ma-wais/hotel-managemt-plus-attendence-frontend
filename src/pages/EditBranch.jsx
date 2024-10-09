@@ -53,7 +53,7 @@ const EditBranch = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+    <div className="min-h-screen flex justify-center items-center w-full">
       <form onSubmit={handleSubmit} className="p-6 bg-white rounded-lg shadow-md w-full max-w-md">
         <h2 className="text-2xl mb-4">Edit Branch</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}

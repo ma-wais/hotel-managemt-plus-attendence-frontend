@@ -25,7 +25,7 @@ const EmployeeForm = ({ branchId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" mt-10 p-6 flex flex-col bg-white rounded-lg shadow-md">
+    <form onSubmit={handleSubmit} className="w-full mt-10 p-6 flex flex-col bg-white rounded-lg shadow-md">
       <h2 className="text-2xl mb-4">Add Employee</h2>
       <input
         type="text"

@@ -71,7 +71,7 @@ const TransferEmployee = () => {
   };
 
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 min-h-screen w-full">
       <h1 className="text-3xl mb-4">Transfer Employee</h1>
 
       <Select
