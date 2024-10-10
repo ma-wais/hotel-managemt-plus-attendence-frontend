@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 import { server } from "../App";
 
 const AddShift = () => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [status, setStatus] = useState(true);
   const [shifts, setShifts] = useState([]);
   const { branchId } = useParams();
@@ -27,9 +27,13 @@ const AddShift = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${server}/branches/${branchId}/shifts`, { name, description, status });
-      setName('');
-      setDescription('');
+      await axios.post(`${server}/branches/${branchId}/shifts`, {
+        name,
+        description,
+        status,
+      });
+      setName("");
+      setDescription("");
       setStatus(true);
       fetchShifts();
     } catch (err) {
@@ -74,18 +78,41 @@ const AddShift = () => {
           />
           Active
         </label>
-        <button type="submit" className="bg-blue-500 text-white p-2 rounded">Add Shift</button>
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+          Add Shift
+        </button>
       </form>
       <h2 className="text-xl font-bold mb-2">Shifts</h2>
-      <ul>
-        {shifts.map((shift) => (
-          <li key={shift._id} className="flex justify-between items-center mb-2">
-            <span>{shift.name} - {shift.description} - {shift.status ? 'Active' : 'Inactive'}</span>
-            <button onClick={() => handleDelete(shift._id)} className="bg-red-500 text-white p-1 rounded">Delete</button>
+      <ul className="divide-y divide-gray-200 rounded-lg shadow-md bg-white">
+        {shifts.map((shift, index) => (
+          <li
+            key={shift._id}
+            className="flex justify-between items-center p-4 hover:bg-gray-100 transition duration-300 ease-in-out"
+          >
+            {index + 1}. {shift.name} 
+            {/* - {shift.description}{" "} */}
+            <span
+              className={`${
+                shift.status ? "text-green-500" : "text-red-500"
+              }`}
+            >
+              {shift.status ? "Active" : "Inactive"}
+            </span>
+            <button
+              onClick={() => handleDelete(shift._id)}
+              className="bg-red-500 text-white p-1 rounded"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
-      <button onClick={() => navigate(`/branch/${branchId}`)} className="bg-gray-500 text-white p-2 rounded mt-4">Back to Branch</button>
+      <button
+        onClick={() => navigate(`/branch/${branchId}`)}
+        className="bg-gray-500 text-white p-2 rounded mt-4"
+      >
+        Back to Branch
+      </button>
     </div>
   );
 };

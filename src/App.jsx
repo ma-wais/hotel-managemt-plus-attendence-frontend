@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Header, { SideBar } from "./components/Header.jsx";
 import BranchDashboard from "./pages/BranchDashboard.jsx";
 import CreateBranch from "./pages/CreateBranch.jsx";
 import BranchPage from "./components/BranchPage.jsx";
@@ -7,14 +10,11 @@ import AddSection from "./pages/AddSection.jsx";
 import AddShift from "./pages/AddShift.jsx";
 import BranchLogin from "./components/BranchLogin.jsx";
 import EditBranch from "./pages/EditBranch.jsx";
-import EmployeeForm from "./pages/EmployeeForm.jsx";
 import UserLogin from "./pages/Login.jsx";
 import AdminBranches from "./pages/AdminBranches.jsx";
 import TransferEmployee from "./pages/TransferEmployee.jsx";
 import EditEmployee from "./pages/EditEmployee.jsx";
 import ManageEmployeesPage from "./pages/ManageEmployee.jsx";
-import Header, { SideBar } from "./components/Header.jsx";
-import { useState } from "react";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import EmployeeList from "./pages/EmployeeList.jsx";
 import AttendanceList from "./pages/Attendence.jsx";
@@ -25,6 +25,7 @@ import DeleteShift from "./pages/DeleteShift.jsx";
 import SectionList from "./pages/SectionList.jsx";
 import DeleteSection from "./pages/DeleteSection.jsx";
 import DeleteBranch from "./pages/DeleteBranch.jsx";
+import AdminAddEmployee from "./pages/AdminAddEmployee.jsx";
 
 // export const server = "http://localhost:5000/api";
 export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
@@ -82,7 +83,7 @@ function App() {
           <Route path="/admin/sections" element={<SectionList />} />
           <Route path="/admin/section/delete" element={<DeleteSection />} />
 
-          <Route path="/admin/dashboard/employees" element={<EmployeeForm />} />
+          <Route path="/admin/dashboard/employees" element={<AdminAddEmployee />} />
           <Route
             path="/employees/:employeeId/transfer"
             element={<TransferEmployee />}

@@ -15,9 +15,7 @@ const AddSection = () => {
   const fetchSections = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await axios.get(
-        `${server}/branches/${branchId}/sections`
-      );
+      const res = await axios.get(`${server}/branches/${branchId}/sections`);
       setSections(res.data);
     } catch (err) {
       setError(err.message);
@@ -33,10 +31,10 @@ const AddSection = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        `${server}/branches/${branchId}/sections`,
-        { name, status }
-      );
+      await axios.post(`${server}/branches/${branchId}/sections`, {
+        name,
+        status,
+      });
       setName("");
       setStatus(true);
       fetchSections();
@@ -47,9 +45,7 @@ const AddSection = () => {
 
   const handleDelete = async (sectionId) => {
     try {
-      await axios.delete(
-        `${server}/sections/${sectionId}/${branchId}`
-      );
+      await axios.delete(`${server}/sections/${sectionId}/${branchId}`);
       fetchSections();
     } catch (err) {
       setError(err.message);
@@ -92,18 +88,25 @@ const AddSection = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
-          {sections.map((section) => (
+        <ul className="divide-y divide-gray-200 rounded-lg shadow-md bg-white">
+          {sections.map((section, index) => (
             <li
               key={section._id}
-              className="flex justify-between items-center mb-2"
+              className="flex justify-between items-center p-4 hover:bg-gray-100 transition duration-300 ease-in-out"
             >
-              <span>
-                {section.name} - {section.status ? "Active" : "Inactive"}
+              <span className="text-lg font-medium text-gray-700">
+                {index + 1}. {section.name}
+              </span>
+              <span
+                className={`${
+                  section.status ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {section.status ? "Active" : "Inactive"}
               </span>
               <button
                 onClick={() => handleDelete(section._id)}
-                className="bg-red-500 text-white p-1 rounded"
+                className="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out"
               >
                 Delete
               </button>

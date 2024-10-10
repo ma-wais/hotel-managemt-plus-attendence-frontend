@@ -79,7 +79,6 @@ button {
     top: 60px;
     overflow-y: scroll;
     max-height: 100vh;
-    z-index: 10;
   }
 
   .sideBar::-webkit-scrollbar{

@@ -5,9 +5,8 @@ import { server } from "../App";
 
 const AddEmployee = () => {
   const params = useParams();
-  const { branchId, sectionId, shiftId } = params;
   const navigate = useNavigate();
-
+  const { branchId, sectionId, shiftId } = params;
   const [employeeData, setEmployeeData] = useState({
     name: "",
     fatherName: "",
