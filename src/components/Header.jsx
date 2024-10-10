@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { BiCart, BiHomeAlt, BiLogOut, BiMenu } from "react-icons/bi";
-import "../styles/header.scss";
 import { CgAddR } from "react-icons/cg";
 import { CiSettings } from "react-icons/ci";
 import { BsMenuButtonWide } from "react-icons/bs";
 import { RiFilePaperFill } from "react-icons/ri";
-import { FaBoxes } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
-import { server } from "../App";
+import "../styles/header.scss";
+// import axios from "axios";
+// import { server } from "../App";
 
 // const Header = ({ token, setToken, toggleSidebar, setUser }) => {
 const Header = ({ toggleSidebar }) => {
@@ -64,12 +63,11 @@ export const SideBar = ({ setUser }) => {
   
   const logout = async () => {
     try {
-      await axios.post(`${server}/users/logout`, {}, { withCredentials: true });
-
-      localStorage.removeItem("token");
-
-      setUser(null);
-      navigate("/login");
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("adminToken");
+      sessionStorage.removeItem("adminInfo");
+      // setUser(null);
+      navigate("/");
     } catch (error) {
       console.error("Logout failed", error);
     }
