@@ -6,6 +6,7 @@ import { BsMenuButtonWide } from "react-icons/bs";
 import { RiFilePaperFill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/header.scss";
+import { FaBoxes } from "react-icons/fa";
 // import axios from "axios";
 // import { server } from "../App";
 
@@ -130,9 +131,9 @@ export const SideBar = ({ setUser }) => {
         <p onClick={() => navigate("/section/edit")}>Edit Section</p> */}
         <p onClick={() => navigate("/admin/section/delete")}>Delete Section</p>
       </nav>
-      {/* <div onClick={() => navigate("/cash-summary")}>
-        <FaBoxes /> <p>Cash Summary</p>
-      </div> */}
+      <div onClick={() => navigate("/admin/attendance/report")}>
+        <FaBoxes /> <p>Attendance Summary</p>
+      </div>
       <div onClick={() => logout()}>
         <BiLogOut /> <p>Logout</p>
       </div>
