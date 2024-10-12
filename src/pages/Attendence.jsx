@@ -28,9 +28,10 @@ const AttendanceList = ({defaultTab = 'present'}) => {
           console.log(employeesRes.data, attendanceRes.data);
 
           const attendanceMap = attendanceRes.data.reduce((acc, record) => {
-            acc[record.employee] = record.status;
+            acc[record.employee._id] = record.status;
             return acc;
           }, {});
+
 
           setAttendanceData(attendanceMap);
         } catch (err) {
@@ -41,9 +42,10 @@ const AttendanceList = ({defaultTab = 'present'}) => {
   }, [selectedDate]);
 
   const filteredEmployees = employees.filter(employee => {
-    const isPresent = attendanceData[employee._id] === 'Present';
+    const isPresent = attendanceData[employee._id] === 'Present' || false;
     return activeTab === 'present' ? isPresent : !isPresent;
   });
+
 
   const indexOfLastEmployee = currentPage * employeesPerPage;
   const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
