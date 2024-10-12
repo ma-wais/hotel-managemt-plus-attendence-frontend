@@ -60,7 +60,7 @@ const BranchPage = () => {
           setEmployees(employeesRes.data);
 
           const attendanceMap = attendanceRes.data.reduce((acc, record) => {
-            acc[record.employee] = record.status;
+            acc[record.employee._id] = record.status;
             return acc;
           }, {});
           console.log("Fetched attendance data:", attendanceMap);
