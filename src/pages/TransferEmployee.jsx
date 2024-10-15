@@ -18,7 +18,9 @@ const TransferEmployee = () => {
     const fetchBranches = async () => {
       try {
         const res = await axios.get(`${server}/branches`);
-        setBranches(res.data.map(branch => ({ value: branch._id, label: branch.name })));
+        setBranches(
+          res.data.map((branch) => ({ value: branch._id, label: branch.name }))
+        );
       } catch (err) {
         console.error("Error fetching branches:", err);
       }
@@ -30,8 +32,15 @@ const TransferEmployee = () => {
     const fetchSections = async () => {
       if (selectedBranch) {
         try {
-          const res = await axios.get(`${server}/branches/${selectedBranch.value}/sections`);
-          setSections(res.data.map(section => ({ value: section._id, label: section.name })));
+          const res = await axios.get(
+            `${server}/branches/${selectedBranch.value}/sections`
+          );
+          setSections(
+            res.data.map((section) => ({
+              value: section._id,
+              label: section.name,
+            }))
+          );
         } catch (err) {
           console.error("Error fetching sections:", err);
         }
@@ -44,8 +53,12 @@ const TransferEmployee = () => {
     const fetchShifts = async () => {
       if (selectedSection) {
         try {
-          const res = await axios.get(`${server}/branches/${selectedBranch.value}/shifts`);
-          setShifts(res.data.map(shift => ({ value: shift._id, label: shift.name })));
+          const res = await axios.get(
+            `${server}/branches/${selectedBranch.value}/shifts`
+          );
+          setShifts(
+            res.data.map((shift) => ({ value: shift._id, label: shift.name }))
+          );
         } catch (err) {
           console.error("Error fetching shifts:", err);
         }
@@ -54,7 +67,6 @@ const TransferEmployee = () => {
     fetchShifts();
   }, [selectedSection]);
 
-  // Handle employee transfer
   const handleTransfer = async () => {
     try {
       await axios.put(`${server}/employees/${employeeId}/transfer`, {
@@ -79,6 +91,7 @@ const TransferEmployee = () => {
         value={selectedBranch}
         onChange={setSelectedBranch}
         placeholder="Select New Branch"
+        className="max-w-md"
       />
 
       {selectedBranch && (
@@ -88,6 +101,7 @@ const TransferEmployee = () => {
             value={selectedSection}
             onChange={setSelectedSection}
             placeholder="Select Section"
+            className="max-w-md"
           />
         </div>
       )}
@@ -99,6 +113,7 @@ const TransferEmployee = () => {
             value={selectedShift}
             onChange={setSelectedShift}
             placeholder="Select Shift"
+            className="max-w-md"
           />
         </div>
       )}

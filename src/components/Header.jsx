@@ -61,7 +61,7 @@ export const SideBar = ({ setUser }) => {
   if (!location.pathname.includes("/admin")) {
     return null;
   }
-  
+
   const logout = async () => {
     try {
       sessionStorage.removeItem("token");
@@ -95,14 +95,16 @@ export const SideBar = ({ setUser }) => {
       </div>
       <nav className={show === "item" ? "p5 h-auto" : ""}>
         <p onClick={() => navigate("/admin/employees")}>All Employees</p>
-        <p onClick={() => navigate("/admin/dashboard/employees")}>Add Employee</p>
-        <p
-        // onClick={() => navigate("/employees/edit")}
-        className="!cursor-not-allowed"
-        >
-          Edit Employee
+        <p onClick={() => navigate("/admin/dashboard/employees")}>
+          Add Employee
         </p>
-        <p onClick={() => navigate("/admin/employees/delete")}>Delete Employee</p>
+        <p className="!cursor-not-allowed">Edit Employee</p>
+        <p onClick={() => navigate("/admin/employees/transfer")}>
+          Transfer Employee
+        </p>
+        <p onClick={() => navigate("/admin/employees/delete")}>
+          Delete Employee
+        </p>
       </nav>
       <div onClick={() => setShow(show === "purchase" ? "" : "purchase")}>
         <BiCart /> <p>Branches</p> <CgAddR className="add" />

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaTrash} from 'react-icons/fa';
+import { FaShare, FaTrash} from 'react-icons/fa';
 import { server } from '../App';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const DeleteEmployee = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [deleting, setDeleting] = useState(false);
+  const transfer = location.pathname.includes('/transfer');
   
   const employeesPerPage = 12;
 
@@ -60,7 +64,7 @@ const DeleteEmployee = () => {
 
   return (
     <div className="container mx-auto p-6 h-[98vh] overflow-y-scroll">
-      <h1 className="text-3xl font-bold mb-6">Delete Employee</h1>
+      <h1 className="text-3xl font-bold mb-6">{transfer ? 'Transfer' : 'Delete'} Employee</h1>
 
       <table className="table-auto w-full text-left">
         <thead className="bg-gray-200">
@@ -86,6 +90,15 @@ const DeleteEmployee = () => {
               <td className="px-4 py-2">{new Date(employee.joiningDate).toLocaleDateString()}</td>
               <td className="px-4 py-2">{employee.status ? 'Active' : 'Inactive'}</td>
               <td className="px-4 py-2">
+                {transfer? (
+                  <button
+                    onClick={() => navigate(`/employees/${employee._id}/transfer`)}
+                    disabled={deleting}
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  >
+                    <FaShare />
+                  </button>
+                ) : (
                 <button
                   onClick={() => handleDelete(employee._id)}
                   disabled={deleting}
@@ -93,6 +106,7 @@ const DeleteEmployee = () => {
                 >
                   <FaTrash />
                 </button>
+                )}
               </td>
             </tr>
           ))}

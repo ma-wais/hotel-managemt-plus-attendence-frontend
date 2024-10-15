@@ -69,6 +69,7 @@ function App() {
             element={<AttendanceList defaultTab="absent" />}
           />
           <Route path="/admin/employees/delete" element={<DeleteEmployee />} />
+          <Route path="/admin/employees/transfer" element={<DeleteEmployee />} />
 
           <Route path="/login" element={<BranchLogin />} />
           <Route path="/admin/create-branch" element={<CreateBranch />} />
