@@ -27,6 +27,8 @@ import DeleteSection from "./pages/DeleteSection.jsx";
 import DeleteBranch from "./pages/DeleteBranch.jsx";
 import AdminAddEmployee from "./pages/AdminAddEmployee.jsx";
 import AttendanceReport from "./pages/AttendanceReport.jsx";
+import PayrollForm from "./pages/PayrollForm.jsx";
+import PayrollReport from "./pages/PayrollReport.jsx";
 
 // export const server = "http://localhost:5000/api";
 export const server = "https://hotel-memt-plus-att-api.onrender.com/api"
@@ -63,6 +65,8 @@ function App() {
           <Route path="/admin/branches" element={<AdminBranches />} />
 
           <Route path="/admin/employees" element={<EmployeeList />} />
+          <Route path="/admin/payroll" element={<PayrollForm />} />
+          <Route path="/payroll-report" element={<PayrollReport />} />
           <Route path="/admin/employees-present" element={<AttendanceList />} />
           <Route
             path="/admin/employees-absent"

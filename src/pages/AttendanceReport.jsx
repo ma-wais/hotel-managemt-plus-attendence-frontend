@@ -26,7 +26,6 @@ const AttendanceReport = () => {
     fetchEmployees();
   }, []);
 
-  // Modified handleGenerateReport function
   const handleGenerateReport = async () => {
     if (!selectedEmployee || !startDate || !endDate) {
       alert("Please select an employee and date range.");

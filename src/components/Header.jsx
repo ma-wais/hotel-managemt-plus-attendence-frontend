@@ -7,8 +7,6 @@ import { RiFilePaperFill } from "react-icons/ri";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../styles/header.scss";
 import { FaBoxes } from "react-icons/fa";
-// import axios from "axios";
-// import { server } from "../App";
 
 // const Header = ({ token, setToken, toggleSidebar, setUser }) => {
 const Header = ({ toggleSidebar }) => {
@@ -101,6 +99,9 @@ export const SideBar = ({ setUser }) => {
         <p className="!cursor-not-allowed">Edit Employee</p>
         <p onClick={() => navigate("/admin/employees/transfer")}>
           Transfer Employee
+        </p>
+        <p onClick={() => navigate("/admin/payroll")}>
+          Payroll
         </p>
         <p onClick={() => navigate("/admin/employees/delete")}>
           Delete Employee
